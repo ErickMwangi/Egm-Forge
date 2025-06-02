@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opt-In Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <header style="position: absolute; top: 20px; left: 20px; z-index: 10; color: white;">
+        <h2 style="margin: 0;">🚀 WebFrame</h2>
+    </header>
+    <header style="position: absolute; top: 20px; right: 20px; z-index: 10; color: white;">
+        <a href="mailto:contact@webframe.com" style="color: white; text-decoration: none;">egmforge@phd.com</a>
+    </header>
+
+    <div class="hero-section">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='video/Artic_Aurora.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="text-content">
+            <h1><span class="highlight">Accelerate</span> Your Business With a High-Performance <span class="highlight">Web Platform</span></h1>
+            <p>We build powerful websites, scalable e-commerce solutions, and complex web apps that drive results.</p>
+            <button onclick="document.getElementById('form-popup').style.display='flex'">Claim Your Strategy Guide</button>
+        </div>
+    </div>
+
+    <div id="form-popup" class="popup-container">
+        <form method="POST" class="popup-form">
+            <span class="close-btn" onclick="document.getElementById('form-popup').style.display='none'">&times;</span>
+            <h2>Get the Strategy PDF</h2>
+            <input type="text" name="company" placeholder="Name" required>
+            <input type="text" name="industry" placeholder="Industry (e.g. eCommerce)" required>
+            <input type="email" name="email" placeholder="Business Email" required>
+            <input type="text" name="project_goal" placeholder="Main Goal (e.g. Launch MVP, Redesign Site)" required>
+            <button type="submit">Access Guide</button>
+            <p class="form-disclaimer">* You'll also receive exclusive tips on scaling your digital platform. Unsubscribe anytime.</p>
+            {% if success %}<p style="color: green; text-align: center; margin-top: 10px;">Thank you! Your strategy guide is on its way.</p>{% endif %}
+        </form>
+    </div>
+
+    <div class="audio-player">
+        <audio id="myAudio" controls>
+            <source src="{{ url_for('static', filename='audio/lil_durk_street_affection.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</body>
+</html>
