@@ -128,16 +128,18 @@ button {
 }
 
 .flashes {
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: #222;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #333;
+    font-weight: 600;
     z-index: 1000;
-    list-style: none;
   }
+  
 
   .audio-player {
     position: fixed;
@@ -165,6 +167,12 @@ button {
   #playPauseBtn:hover {
     color: #1DB954;
   }
+
+
+  
+
+
+
 
 
 

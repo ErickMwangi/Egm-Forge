@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opt-In Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <a href="{{ url_for('guide') }}" class="btn btn-primary">Access Guide</a>
 </head>
 <body>
     {% with messages = get_flashed_messages() %}
@@ -37,18 +38,22 @@
     </div>
 
     <div id="form-popup" class="popup-container">
-        <form method="POST" class="popup-form">
+        <form method="POST" class="popup-form" action="{{ url_for('submit') }}">
             <span class="close-btn" onclick="document.getElementById('form-popup').style.display='none'">&times;</span>
             <h2>Get the Strategy PDF</h2>
             <input type="text" name="company" placeholder="Name" required>
             <input type="text" name="industry" placeholder="Industry (e.g. eCommerce)" required>
             <input type="email" name="email" placeholder="Business Email" required>
             <input type="text" name="project_goal" placeholder="Main Goal (e.g. Launch MVP, Redesign Site)" required>
-            <button type="submit">Access Guide</button>
+            <button type="submit">Access guide</button>
             <p class="form-disclaimer">* You'll also receive exclusive tips on scaling your digital platform. Unsubscribe anytime.</p>
-            {% if success %}<p style="color: green; text-align: center; margin-top: 10px;">Thank you! Your strategy guide is on its way.</p>{% endif %}
+            {% if success %}
+              <p style="color: green; text-align: center; margin-top: 10px;">Thank you! Your strategy guide is on its way.</p>
+            {% endif %}
         </form>
+        <a href="{{ url_for('guide') }}" class="access-guide-btn">Access Guide</a>
     </div>
+    
 
     <div class="audio-player">
         <audio id="myAudio" controls>
