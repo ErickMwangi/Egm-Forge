@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opt-In Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <a href="{{ url_for('guide') }}" class="btn btn-primary">Access Guide</a>
+   <!-- <a href="{{ url_for('guide') }}" class="btn btn-primary">Access Guide</a> -->
 </head>
 <body>
     {% with messages = get_flashed_messages() %}
@@ -16,7 +16,7 @@
           {% endfor %}
         </ul>
       {% endif %}
-    {% endwith %}
+    {% endwith %} 
 
     <header style="position: absolute; top: 20px; left: 20px; z-index: 10; color: white;">
         <h2 style="margin: 0;">🚀 WebFrame</h2>
