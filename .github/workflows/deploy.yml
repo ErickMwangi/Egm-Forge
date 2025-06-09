@@ -12,24 +12,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-
-    - name: Install backend dependencies
-      working-directory: backend
-      run: |
-        python -m venv venv
-        source venv/bin/activate
-        pip install -r requirements.txt
-
-    - name: Run backend script (optional)
-      working-directory: backend
-      run: |
-        source venv/bin/activate
-        python some_script.py
-
     - name: Set up Ruby for Jekyll
       uses: ruby/setup-ruby@v1
       with:
