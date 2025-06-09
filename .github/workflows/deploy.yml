@@ -9,29 +9,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Ruby for Jekyll
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
+    - name: Set up Ruby for Jekyll
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
 
-      - name: Install Jekyll dependencies
-        run: bundle install --full-index
+    - name: Debug environment
+      run: |
+        echo "### Current directory: $(pwd)"
+        echo "### Listing files in repo root:"
+        ls -la
+        echo "### Bundle environment:"
+        bundle env || true
+        echo "### Gemfile exists?"
+        test -f Gemfile && echo "Gemfile found" || echo "Gemfile missing"
+        echo "### Gemfile.lock exists?"
+        test -f Gemfile.lock && echo "Gemfile.lock found" || echo "Gemfile.lock missing"
 
-      - name: Build site with Jekyll
-        run: bundle exec jekyll build
+    - name: Install Jekyll dependencies
+      run: bundle install --full-index
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+    - name: Build site with Jekyll
+      run: bundle exec jekyll build
 
-      - name: Debug environment
-        run: |
-            echo "PWD: $(pwd)"
-            ls -l
-            bundle env
-  
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
