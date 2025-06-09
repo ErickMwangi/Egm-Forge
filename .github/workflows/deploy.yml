@@ -18,7 +18,7 @@ jobs:
         ruby-version: '3.1'
 
     - name: Install Jekyll dependencies
-      run: bundle install
+      run: bundle install --full-index
 
     - name: Build site with Jekyll
       run: bundle exec jekyll build
