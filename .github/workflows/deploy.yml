@@ -18,7 +18,7 @@ jobs:
           ruby-version: '3.1' 
           bundler-cache: true
 
-      - name: Install dependencies
+      - name: Install dependencies (no deployment lock enforcement)
         run: bundle install --jobs 4 --retry 3 --full-index --no-deployment
 
       - name: Build the site with Jekyll
