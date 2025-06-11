@@ -45,7 +45,7 @@ def send_notification_email(email, company, industry, goal):
 @app.route('/')
 def home():
     show_modal = session.pop('show_modal', False)
-    return render_template('opt_in.html', success=show_modal)
+    return render_template('index.html', success=show_modal)
 
 
 @app.route('/submit', methods=['POST'])
