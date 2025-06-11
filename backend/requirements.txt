@@ -156,3 +156,5 @@ yarl==1.9.8
 zipp==1.0.0
 zope.event==5.0
 zope.interface==7.0.3
+Flask==2.3.2
+gunicorn==21.2.0
