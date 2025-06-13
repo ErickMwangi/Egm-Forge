@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: egm-backend
+    name: egm-forge
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn backend.app:app"  
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
     envVars:
       - key: FLASK_ENV
         value: production
